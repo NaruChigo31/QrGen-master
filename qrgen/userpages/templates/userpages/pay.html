@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+<p class="payment-text" >Деталі оплати</p>
+<div class="payment-div">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'userpages/payy.css' %}">
+    <form method="post">
+        {% csrf_token %}
+        <div class="payment-inputs-div">
+            <div class="input-pay">
+                <label for=".name">Ім'я:</label>
+                <input class="name pay-input" type="text" placeholder="Oleksyi Ostapchenko">
+            </div>
+            <div class="input-pay">
+                <label for=".card-number">Номер картки:</label>
+                <input class="card-number pay-input" type="text" placeholder="1234 5678 9876 5432">
+            </div>
+            <div class="input-pay">
+                <label for=".CVV">CVV:</label>
+                <input class="CVV pay-input" type="text" placeholder="123">
+            </div>
+            <div class="input-pay">
+                <label for=".valid-till">Дійсна до:</label>
+                <input class="valid-till pay-input" type="text" placeholder="09/26">
+            </div>
+            <button name="plantype" value = "{{ plan_info.plantype }}" class="submit">ОТРИМАТИ</button>
+        </div>
+    </form>
+    <div class="plan">
+        <div class="upper">
+            <p class="type">{{ plan_info.plantype }}</p>
+            <p class="price">{{ plan_info.price }}$/month</p>
+            
+        </div>
+        <div class="lower">
+            <div class="dynamic">
+                <div class="value">{{ plan_info.qrcode_amount }}</div>
+                <p>Динамічні QR-коди</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

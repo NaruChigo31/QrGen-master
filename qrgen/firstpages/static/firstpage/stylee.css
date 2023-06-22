@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+.plan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 30px;
+    gap: 4px;
+
+    /* width: 313px; */
+    /* height: 366px; */
+
+    background: #FFBD99;
+    border-radius: 30px;
+}
+.upper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 0px;
+    gap: 12px;
+    /* width: 239px;
+    height: 250px; */
+    border-bottom: 2px solid;
+    border-color: #CC4700;
+}
+
+.upper button{
+    text-decoration: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 15px;
+    gap: 10px;
+    /* width: 146px; */
+    /* height: 60px; */
+    background-color: #3381FF;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    color: white;
+}
+.buy{
+    text-decoration: none;
+}
+
+.upper button:hover{
+    background-color: #0062ff;
+}
+.type{
+    height: 45px;
+    /* article 36 bold */
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    color: #CC4700;
+}
+.price{
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+    
+
+    color: #000000;
+}
+.lower{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 40px;
+    gap: 5px;
+
+    /* width: 253px;
+    height: 112px; */
+}
+.dynamic{
+    display: flex;
+    flex-direction: row;
+    justify-content: left ;
+    align-items: center;
+    padding: 4px 7px;
+    gap: 12px;
+    
+    width: 174px;
+    height: 38px;
+}
+.value{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 5px 33.5px; */
+    gap: 10px;
+
+    width: 74px;
+    height: 25px;
+
+    /* CSK - #FF5900/300
+
+    CSK - #FF5900/300
+    */
+    background: #FF9C66;
+    border-radius: 5px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    padding: 2% 3%;
+    gap: 43px;
+
+    /* width: 724px; */
+    /* height: 459px; */
+
+    background: rgba(0, 20, 51, 0.15);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 50px;
+}
+.reg-label{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+
+
+    /* CSK - #0062FF/400 */
+
+    color: #FF9C66;
+
+}
+
+
+.log-label{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+
+
+    /* CSK - #0062FF/400 */
+
+    color: #3381FF;
+
+}
+.reg-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    border: none;
+    width: 97%;
+    height: 3%;
+    color: #000000;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+
+    /* color: #FFFFFF; */
+    background: rgba(255, 156, 102, 0.4);
+    border-radius: 30px;
+}
+
+.reg-input::placeholder{
+    /* article 36 bold */
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    color: #FFFFFF;
+}
+.reg-input::placeholder:active{
+    border: none;
+}
+
+.log-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    border: none;
+    width: 97%;
+    height: 3%;
+    color: #000000;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+
+    color: #FFFFFF;
+    background: rgba(0, 39, 102, 0.4);
+    border-radius: 30px;
+}
+.log-input::placeholder{
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+
+    color: #FFFFFF;
+}
+.submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 40px 0px 33px;
+    gap: 10px;
+
+    width: 100%;
+    height: 75px;
+}
+.log-in{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    font-size: 50px;
+    font-weight: 700;
+    width: 258px;
+    height: 75px;
+    background: rgba(0, 39, 102, 0.6);
+    border: none;
+    border-radius: 30px;
+    color: #FFFFFF;
+    line-height: 62px;
+}
+.log-in:hover{
+    background-color: rgba(0, 33, 87, 0.6);
+}
+.sign-up:hover{
+    background: rgba(255, 122, 51, 0.6);
+}
+.dont-have{
+    border: none;
+    background: none;
+    height: 40px;
+
+    /* article 32 bold */
+
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    /* opacity: 70%; */
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+.error_text{
+    color: #CC4700;
+}
+
+.sign-up{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    /* width: 232px;
+    height: 80px; */
+    background: rgba(255, 156, 102, 0.6);
+    border-radius: 30px;
+    border: none;
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 62px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+
+.have{
+    height: 40px;
+    /* article 32 bold */
+
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+
+.log-out{
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+    text-decoration: none;
+    width: 258px;
+    height: 75px;
+
+    background: rgba(0, 39, 102, 0.6);
+    border-radius: 30px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column; 
+    padding: 0px 50px 50px 50px;
+    height: auto;
+}
+
+.cards{
+    flex-direction: row; 
+    gap: 10px;
+    display: flex;
+}
+
+@media (max-width: 550px){
+    .submit{
+        padding: 0px 0px 0px 20px;
+    }
+    .container{
+        margin-right: 5%;
+        margin-left: 5%;
+        gap: 15px;
+        /* margin: 0px 20px 0 0; */
+    }
+    .reg-label{
+        font-size: 24px;
+    }
+    .sign-up{
+        line-height: 30px;
+        padding: 10px 5px 10px 5px;
+        font-size: 16px;
+    }
+    .have{
+        font-size: 14px;
+        padding-bottom: 25px;
+    }
+    .reg-input{
+        padding: 10px 0 10px 20px;
+    }
+    .reg-input::placeholder{
+        font-size: 16px;
+    }
+    .log-input{
+        padding: 10px 0 10px 20px;
+    }
+    .log-in{
+        line-height: 30px;
+        font-size: 30px;
+    }
+    .dont-have{
+        font-size: 14px;
+    }
+    .cards{
+        flex-direction: column;
+    }
+}
+@media (max-width:831px){
+    .menu{
+        flex-direction: column;
+        padding: 10px;
+    }
+    body{
+        gap: 0px;
+    }
+    .submit{
+        padding: 0px 0px 0px 20px;
+    }
+    .have{
+        font-size: 16px;
+    }
+}

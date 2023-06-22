@@ -1,0 +1,37 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'userpages/all_qr.css' %}">
+
+<p class="qr-tipa">Усі твої QR-коди</p>
+<input type="text" class="url" value="{% url 'all-qr' %}" name="url" hidden>
+{% csrf_token %}
+<input id="csrf" type="text" value="{{ csrf_token }}" hidden>
+<div class="containeeer">
+    {% for qr in  qr_list %}
+    <div class="qr-div">
+        <img class="qr-img" src="{{ qr.image.url }}" alt="here must be picture">
+        <div class="qr-url-div" title="{{ qr.url }}">
+            <a class="qr-url url-for-js" href="{{ qr.url }}" target="_blank">{{ qr.url|truncatechars:40 }}</a>
+            <p class="qr-url qr-text" style="display: none">here is no information</p>
+        </div>
+        <!-- <input type="text" class="delete-pk" name="delete" value="{{ qr.pk }}" hidden> -->
+        <div style="display: flex; flex-direction: row; gap: 5px;">
+            <form action="" method="post">
+                {% csrf_token %}
+                <button class="delete" value="{{ qr.pk }}" name="delete-pk">Видалити</button>
+            </form>
+            <a href="{{ qr.image.url }}" download><button class="download-button">Завантажити</button></a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+<img id="arrowTop" src="{% static 'userpages\images\top.png' %}" alt="">
+<img id="arrowDown" src="{% static 'userpages\images\down.png' %}" alt="">
+<script src="{% static 'userpages/arrow.js' %}"></script>
+<script src="{% static 'userpages/jquery-3.6.4.js' %}"></script>
+<script src="{% static 'userpages/post.js' %}"></script>
+{% endblock %}

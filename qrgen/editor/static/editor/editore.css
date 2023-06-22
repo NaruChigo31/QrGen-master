@@ -1,0 +1,101 @@
+.block-choose-div{
+    background-color: rgb(46, 119, 161);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.block-choose-div label{
+    font-size: large;
+    color: coral;
+}
+.generator{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 50px;
+    margin-top: 100px;
+    gap: 40px;
+    background: rgba(0, 20, 51, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+}
+
+.gradiant-choose-div{
+   background-color: rgb(46, 119, 161);
+   border-radius: 30px; 
+   padding: 10px;
+}
+
+.load_image_div{
+    margin-top: 30px;
+    background-color: rgb(46, 119, 161);
+    border-radius: 30px; 
+    padding: 10px;
+    color: white;
+}
+
+.gradiant-choose-div label{
+    font-size: large;
+    color: coral;
+}
+
+.gradiant{
+    background-color: lightslategray;
+    border-radius: 30px;
+    padding: 10px;
+}
+.url-input{
+    font-size: 20px;
+    padding: 20px 230px 20px 20px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    border: none;
+    color: #FFFFFF;
+    background: rgba(255, 156, 102, 0.4);
+}
+.colors{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+
+
+}
+.photo-url{
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 156, 102, 1);
+}
+.type-qr p{
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 10px;
+    margin-top: 20px;
+
+}
+.create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    width: 334px;
+    height: 97px;
+    background: #002766;
+    border-radius: 30px;
+    font-size: 36px;
+    line-height: 45px;
+    color: white;
+}
+.create:hover{
+    background: #0b3880;
+}
+.create:active{
+    background: #001b47;
+}
+#img-tag{
+    margin: 30px 0px 30px 0px;
+}

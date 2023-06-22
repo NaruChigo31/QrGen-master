@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/base1.css' %}">
+    <link rel="stylesheet" href="{% static 'firstpage/stylee.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="profile" data-tooltip="Profile">
+            <a class="profile-a" href="{% url 'profile' %}"> 
+                <img class="header-button" src="{% static 'base/images/account.png' %}" alt="profile button">
+            </a>
+            <p class="pr-hint hint">Профіль</p>
+        </div>
+        <div class="qr-gen">
+           <a class = "qr-gen-a" href="{% url 'editor' %}">
+                <img class="header-button" src="{% static 'base/images/create_qr.png' %}" alt="Create qr code button" class="qr-gen">
+           </a>
+           <p class="qr-gen-hint hint">Генератор QR-кодів</p>
+        </div>
+        <div class="logo">
+            <a href="https://youtu.be/dQw4w9WgXcQ">
+                <img class = "logo-img" src="{% static 'base/images/logo.png' %}" alt="Logo">
+            </a>
+        </div>
+        <div class="view-all">
+            <a class = "view-all-a" href="{% url 'all-qr' %}">
+                <img class = "header-button" src="{% static 'base/images/view_all.png' %}" alt="view all button">
+            </a>
+            <p class="all-hint hint">Усі QR-коди</p>
+        </div>
+        <div class="plans">
+            <a class="plans" href="{% url 'main' %}">
+                <img class = "header-button" src="{% static 'base/images/plans.png' %}" alt="plans button">
+            </a>
+            <p class="plans-hint hint">Плани</p>
+        </div>
+    </header>
+
+
+        {% block content %}
+          
+        {% endblock %}
+        
+</body>
+</html>

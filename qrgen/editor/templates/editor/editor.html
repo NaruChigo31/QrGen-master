@@ -1,0 +1,213 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'editor/editor.css' %}">
+
+<!-- ------------------scripts------------------ -->
+<script src="{% static 'js/add.js' %}" defer></script>
+<script src="{% static 'js/ajax.js' %}" defer></script>
+<script src="{% static 'js/error.js' %}" defer></script>
+<script src="{% static 'js/ext.js' %}" defer></script>
+<script src="{% static 'js/ghost_form.js' %}" defer></script>
+<script src="{% static 'js/ghost_inner.js' %}" defer></script>
+<script src="{% static 'js/ghost_outer.js' %}" defer></script>
+<script src="{% static 'js/gradiant.js' %}" defer></script>
+<script src="{% static 'js/jquery-3.6.4.js' %}" defer></script>
+<script src="{% static 'js/loading.js' %}" defer></script>
+<script src="{% static 'js/qr_img_check.js' %}" defer></script>
+<!-- ------------------scripts------------------ -->
+
+<input id="url" value="{% url 'editor' %}" hidden>
+<div class="generator">
+    <div class="gen_header">
+        <p>Твій QR-код</p>
+    </div>
+    <form class="create_form" action="{% url 'editor' %}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="left">
+            <input type="text" name = "buttontype" value="img" hidden>
+            <input class="url-input" type="url" name="qr_url" minlength="2" placeholder="Посилання">
+
+            <div class="main-colors-div generator-div-option-left">
+                <div>
+                    <label for="bg_color"  class="text">Колір фону</label>
+                    <input class="bg_color" type="color" value="#ffffff" name="back_color" id="back">
+                </div>
+                <div>
+                    <label for=".first"  class="text">Колір блоків</label>
+                    <input type="color" name="first_color" id="first">
+                </div>
+            </div>
+
+            <div class="generator-div-option-left set_extension">
+                <p class="text">Розширення файлу</p>
+                <div class="with-ext-div">
+                    <div class="extension-div first_choose_ext">
+                        <input class="jpg radio-ext" value="jpg" type="radio" name="extention" checked hidden>
+                        <label for=".jpg">JPG</label>
+                    </div>
+    
+                    <div class="extension-div">
+                        <input class="png radio-ext" value="png" type="radio" name="extention" hidden>
+                        <label for=".png">PNG</label>
+                    </div>
+    
+                    <div class="extension-div">
+                        <input class="tiff radio-ext" value="tiff" type="radio" name="extention" hidden>
+                        <label for=".tiff">TIFF</label>  
+                    </div>   
+                </div>     
+            </div>
+                
+            <div class="block-choose-div-outer generator-div-option-left">
+                
+                <p class="text">Форма блоків QR-коду</p>
+                <div class="block-choose-div">
+                    <div class="cool_class ">
+                        <input type = "radio" class = "form_change_button" id="normal_block" name="block_form" value="SquareModuleDrawer()" checked hidden>
+                        <label for="#normal_block">
+                            <img class="form_change_img first_choose" src="{% static 'editor/image/default.png' %}" alt="Звичайна" title="Звичайна">
+                        </label>
+                    </div>
+                    <div class="cool_class">
+                        <input type = "radio" class = "form_change_button" id="circle_block" name="block_form" value="CircleModuleDrawer()" hidden >
+                        <label for="#circle_block">
+                            <img class="form_change_img" src="{% static 'editor/image/circle.png' %}" alt="Коло" title="Коло">
+                        </label>                        
+                    </div>
+                    <div class="cool_class">
+                        <input type = "radio" class = "form_change_button" id="gapped_block" name="block_form" value="GappedSquareModuleDrawer()" hidden>
+                        <label for="#gapped_block">
+                            <img class="form_change_img" src="{% static 'editor/image/gapped.png' %}" alt="З проміжком" title="З проміжком">
+                        </label>          
+                    </div>
+                    <div class="cool_class">
+                        <input type = "radio" class = "form_change_button" id="round_block" name="block_form" value="RoundedModuleDrawer()" hidden>
+                        <label for="#round_block">
+                            <img class="form_change_img" src="{% static 'editor/image/rounded.png' %}" alt="Закруглений"  title="Закруглений">
+                        </label>                        
+                    </div>
+                    <div class="cool_class">
+                        <input type = "radio" class = "form_change_button" id="vertical_block" name = "block_form" value="VerticalBarsDrawer()" hidden>
+                        <label for="#vertical_block">
+                            <img class="form_change_img" src="{% static 'editor/image/vertical.png' %}" alt="Вертикальний" title="Вертикальний">
+                        </label>                        
+                    </div>
+                    <div class="cool_class">
+                        <input type = "radio" class = "form_change_button" id="horizontal_block" name = "block_form" value="HorizontalBarsDrawer()" hidden>
+                        <label for="#horizontal">
+                            <img class="form_change_img" src="{% static 'editor/image/horizontal.png' %}" alt="Горизонтальний" title="Горизонтальний">
+                        </label>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gradiant-choose-div generator-div-option-left">
+                <p  class="text">Градієнт QR-коду</p>
+                <div class="colors" hidden>    
+                    <input type="color" name="second_color" id="second" hidden>
+                    <label for=".second" class="text" id="second" hidden>Зовнішній колір</label>
+                </div>
+                <input name="load_file" class="load_file-inp photo-url" type="file" accept=".tiff, .jpg, .png" hidden>    
+                <select name="gradiant_form" id="gradiant-select">
+                    <option class="grad_option" id="SolidFill" name="gradiant_form" value="SolidFillColorMask()" checked>Без градієнту</option>
+                    <Option id="RadialGradiant" name="gradiant_form" value="RadialGradiantColorMask()">Радіальний градієнт</Option>
+                    <Option id="SquareGradiant" name="gradiant_form" value="SquareGradiantColorMask()">Квадратний градієнт</Option>
+                    <Option id="VerticalGradiant" name="gradiant_form" value="VerticalGradiantColorMask()">Вертикальний градієнт</Option>
+                    <Option id="HorizontalGradiant" name="gradiant_form" value="HorizontalGradiantColorMask()">Горизонтальний градієнт</Option>
+                    <Option id="ImageGradiant" name="gradiant_form" value="ImageColorMask()">Зображення</Option>
+                </select>
+            </div>
+
+            <div class="load_image_div generator-div-option-left">
+                <label for=".photo-url" class="text">Центральне зображення</label> 
+                <input class="photo-url" name="load_file_little" type="file" accept=".tiff, .jpg, .png">
+            </div>
+
+            <div class="eye-settings-div generator-div-option-left">
+                <p class="text">Налаштування очей коду</p>
+                <div class="eye-settings">
+                    <div class="eye-div">
+                        <p class="text">Внутрішні очі</p>
+                        <div class="eye-form-div">
+                            <div class="inner_cool_class">
+                                <input type="radio" class="inner-change-button" name="inner-eye-form" id="square-inner" value="square" checked hidden>
+                                <label for="#square-inner" class="text">
+                                    <img class="inner-change_img inner_first_choose" src="{% static 'editor/image/inner_square.png' %}" alt="Квадратний" title="Квадратний">
+                                </label>
+                            </div>
+                            <div class="inner_cool_class">
+                                <input type="radio" class="inner-change-button" name="inner-eye-form" id="circle-inner" value="circle" hidden>
+                                <label for="#circle-inner" class="text">
+                                    <img class="inner-change_img" src="{% static 'editor/image/inner_circle.png' %}" alt="Круглий" title="Круглий">
+                                </label>
+                            </div>
+                            <div class="inner_cool_class">
+                                <input type="radio" class="inner-change-button" name="inner-eye-form" id="rounded-inner" value="rounded" hidden>
+                                <label for="#rounded-inner " class="text">
+                                    <img class="inner-change_img" src="{% static 'editor/image/inner_rounded.png' %}" alt="Округло-квадратний" title="Округло-квадратний">
+                                </label>
+                            </div>
+                            <div class="eye-color-div">
+                                <label for=".inner-eye-color" class="text">Колір:</label>
+                                <input type="color" name="inner-eye-color" class="inner-eye-color">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eye-div">
+                        <p class="text">Зовнішні очі</p>
+                        <div class="eye-form-div">
+                            <div class="outer_cool_class">
+                                <input type="radio" class="outer-change-button" name="outer-eye-form" id="square-outer" value="square" checked hidden>
+                                <label for="#square-outer" class="text">
+                                    <img class="outer-change_img outer_first_choose" src="{% static 'editor/image/outer_square.png' %}" alt="Квадратний" title="Квадратний">
+                                </label>
+                            </div>
+                            <div class="outer_cool_class">
+                                <input type="radio" class="outer-change-button" name="outer-eye-form" id="circle-outer" value="circle" hidden>
+                                <label for="#circle-outer" class="text">
+                                    <img class="outer-change_img" src="{% static 'editor/image/outer_circle.png' %}" alt="Круглий" title="Круглий">
+                                </label>
+                            </div>
+                            <div class="outer_cool_class">
+                                <input type="radio" class="outer-change-button" name="outer-eye-form" id="rounded-outer" value="rounded" hidden>
+                                <label for="#rounded-outer" class="text">
+                                    <img class="outer-change_img" src="{% static 'editor/image/outer_rounded.png' %}" alt="Округло-квадратний" title="Округло-квадратний">
+                                </label>
+                            </div>
+                            <div class="eye-color-div">
+                                <label for=".outer" class="text">Колір:</label>
+                                <input type="color" name="outer-eye-color" class="outer-eye-color">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pay-etension">
+                        <h1 class="text">ЗВЕРНІТЬ УВАГУ!</h1>
+                        <p >Не робіть дуже тусклі кольори, код можливо не працюватиме</p>
+                    </div>
+
+                </div>
+                <button type="button" class="add-eye-button eye-button text">Додати</button>
+                <input type="text" value="no_eye" name="add-eye-input" class="add-eye-input" hidden>
+            </div>
+        
+        </div>  
+        <div class="right">
+            <div class="img-div" style="border: 4px solid white; border-radius: 36px;">
+                <img src="{{ url.image.url }}" onerror="this.style.visibility = 'hidden'" id='img-tag'>
+                <img class="gif-load" src="{% static 'editor/gif/loader.gif' %}" alt="" style="display: none;">
+            </div>
+            <div class="for-buttons">
+                <button class="create for-create-load-gif" type="submit">Створити</button>
+                <a name="download" href="{{ url.image.url }}" filename="{{ url.image.name }}" download="extention" class="download-a" hidden><button class="download-button create download-for-mobile" type="button">Завантажити</button></a>
+            </div>
+        </div>        
+
+    </form>
+    <h1 class="error-text" style="color: white; font-size: 20px; background-color:#c26736; padding: 10px; border-radius: 15px;">{{ code }}</h1>
+
+</div>
+{% endblock %}

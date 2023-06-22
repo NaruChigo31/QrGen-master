@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <h1 class="log-label"> Увійти </h1>
+        <input class="log-input" type="text" placeholder="Ім'я користувача" name="name">
+        <input class="log-input" type="password" placeholder="Пароль" name="password">
+        <div class="submit">
+            <button class="log-in"> Увійти </button> <a href="{% url 'reg' %}" class="dont-have">В мене ще немає акаунта</a>
+        </div>
+
+        
+    </div>
+</form>
+<div class="error_div">
+    <h2 class="error_text">{{ error_text }}</h2>
+</div>
+{% endblock %}

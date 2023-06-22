@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <h1 class="reg-label"> Зареєструватись </h1>
+        <input class="reg-input" type="text" placeholder="Ім'я" name="name" maxlength="20" minlength="3" required>
+        <input class="reg-input" type="email" placeholder="Електронна адреса" name="email" required>
+        <input id="pass" class="reg-input" type="password" placeholder="Пароль" name="password" minlength="6" required>
+        <input class="reg-input" type="password" placeholder="Підтвердіть пароль" name="confirm password" minlength="6" required>
+        <div class="submit">
+            <button class="sign-up"> Зареєструватись </button>
+            <a href="{% url 'login' %}" class="have">В мене вже є акаунт</a>
+        </div>
+    </div>
+</form>
+<h2 class="error_text">{{ error_text }}</h2>
+
+{% endblock %}

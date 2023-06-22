@@ -1,0 +1,129 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.payment-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px 40px; */
+    gap: 43px;
+    background: rgba(0, 20, 51, 0.15);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 50px;
+}
+.payment-inputs-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.payment-text{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    /* color: #CC4700; */
+    color: #3381FF;
+    margin-bottom: 1%;
+    margin-top: 2%;
+}
+
+.input-pay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+}
+
+.pay-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 23px 17px 23px;
+    gap: 10px;
+    width: 100%;
+    max-width: 550px;
+    height: 70px;
+    font-family: 'Koh Santepheap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 46px;
+    color: #FF9C66;
+    background: rgba(51, 129, 255, 0.4);
+    border-radius: 30px;
+    border: none;
+}
+
+.input-pay label{
+    height: 46px;
+    font-family: 'Koh Santepheap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 46px;
+    color: #FF9C66;
+}
+
+.submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 244px;
+    height: 63px;
+    background: #002766;
+    border: none;
+    border-radius: 30px;
+    /* article 36 bold */
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    color: #FFFFFF;
+}
+
+@media (max-width: 910px){
+    .payment-div{
+
+        flex-direction: column;
+    }
+    .input-pay{
+        flex-direction: column;
+        width: 96%;
+    }
+    .submit{
+        font-size: 25px;
+    }
+    .pay-input{
+        font-size: 20px;
+        line-height: normal;
+        height: auto;
+        width: 95%;
+    }
+
+    .payment-inputs-div{
+        width: 95%;
+    }
+    form{
+        width: 100%;
+    } 
+    .payment-div{
+        width: 100%;
+    }
+    .input-pay label{
+        font-size: 23px;
+    }
+}

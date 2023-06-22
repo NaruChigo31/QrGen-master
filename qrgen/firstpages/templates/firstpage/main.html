@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'firstpage/style.css' %}">
+<link rel="stylesheet" href="{% static 'base/base.css' %}">
+{% block content %}
+    <div class="menu">
+        <div><h1 style = "color: white; margin-top: 10px;">Оберіть тариф</h1></div>
+        <div class="cards">
+            {% for plan in plans %}
+                {% if plan.price != 0.0 %}
+                    <form action="" method="post" class="plan">
+                        {% csrf_token %}
+                        <div class="upper">
+                            <p class="type">{{ plan.plantype }}</p>
+                            <p class="price">{{ plan.price }}$/month</p>
+                            <button value="{{ plan.plantype }}" name="plantype">ОТРИМАТИ</button>
+                        </div>
+                        <div class="lower">
+                            <div class="dynamic">
+                                <div class="value">{{ plan.qrcode_amount }}</div>
+                                <p>Динамічні QR-коди</p>
+                            </div>
+                        </div>
+                    </form>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

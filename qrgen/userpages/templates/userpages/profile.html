@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+
+<div class="main">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'userpages/profile1.css' %}">
+    <div class="profile-p1">
+        <div style="max-width: 98%;">
+            <p>Ім'я: {{ user.name }}</p>
+            <p style="font-size: 20px;">Email: {{ user.email }}</p>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input class="l-out" type="text" name="button" value="log out" hidden>
+            <button class="log-out log-out-new">Вийти з акаунта</button>
+        </form>
+    </div>
+    <div class="part3">
+        <div class="plan">
+            <div class="upper">
+                <p class="type">{{ user.plan_info.plantype }}</p>
+                <input class="aboba" type="text" value="{{ user.plan_info.plantype }}" hidden>
+                <p class="price">{{ user.plan_info.price }}$/month</p>
+                <p class="last-payment"> Остання оплата: {{ user.user_info.last_payment }}</p>
+            </div>
+            <div class="lower">
+                <div class="dynamic">
+                    <div class="value">{{ user.user_info.qr_amount }}/{{ user.plan_info.qrcode_amount }}</div>
+                    <p>Динамічні QR-коди</p>
+                </div>
+            </div>
+        </div>
+        <div class="cancel">
+            <form action="" method="POST" class="end-up-form">
+                {% csrf_token %}
+                <input class="log-input" type="password" placeholder="Пароль" name="password" required>
+                <input class="log-input" type="password" placeholder="Підтвердіть пароль" name="confirm password" required>
+                <input class="end-s" type="text" name="button" value="endplan" hidden>
+                <label for="" class="end-subscribe" onclick="openModal()">Закінчити план</label>
+                <div class="modal">
+                    <h1>Ви впевнені ?</h1>
+                    <p >Після того як ви натиснете кнопку "Так" дія вашого тарифу одразу закінчиться</p>
+                    <div style="display: flex; flex-direction: row; gap: 5px;">
+                        <input type="reset" class = "button-no button" value="Ні"> 
+                        <input type="submit" class = "button button-yes" value="Так">
+                    </div>
+                </div>
+            </form>
+            <p style="color: azure; font-size: 20px;">{{ code }}</p>
+        </div> 
+    </div>
+    <script src="{% static 'userpages/modal.js' %}" defer></script>
+    <script src="{% static 'userpages/free.js' %}" defer></script>
+</div>
+{% endblock %}

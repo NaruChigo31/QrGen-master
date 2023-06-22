@@ -1,0 +1,110 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: no-repeat;
+    background-image: url("images/background.jpg") ;
+    background-attachment: fixed;
+    background-position: center;
+    /* background-size: 100%; */
+    background-color: #24232b;
+    width: 100%;
+    height: 100%;
+}
+
+header{
+    width: 100%;
+    height: 11%;
+    min-height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 8px 10px; */
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 157px;
+    height: 50px;
+    background: linear-gradient(90.57deg, #3381FF 0.03%, #FF5900 99.92%);
+    border-radius: 30px;
+}
+.logo a{
+    display: flex;
+    height: 90%;
+    width: 100%;
+    justify-content: center;
+}
+.logo-img{
+    /* display: flex; */
+    /* width: 100%; */
+    height: 100%;
+}
+
+.header-button{
+    width: 50px;
+    height: 50px;
+    /* transform: translateY(25%);
+    text-align: center; */
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 50px;
+    margin-top: 100px;
+    gap: 40px;
+
+    height: 657px;
+
+    background: rgba(0, 20, 51, 0.15);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 30px;
+}
+
+
+.hint{
+    position: absolute;
+    z-index: -1;
+    color: aqua;
+    transition: 300ms ease-in-out;
+    opacity: 0;
+}
+
+.profile:hover .pr-hint{
+    z-index: 4;
+    transform: translateY(10px);
+    opacity: 1;
+}
+.qr-gen:hover .qr-gen-hint{
+    z-index: 4;
+    transform: translateY(10px);
+    opacity: 1;
+}
+.view-all:hover .all-hint{
+    z-index: 4;
+    transform: translateY(10px);
+    opacity: 1;
+}
+.plans:hover .plans-hint{
+    z-index: 4;
+    transform: translateY(10px);
+    opacity: 1;
+}
